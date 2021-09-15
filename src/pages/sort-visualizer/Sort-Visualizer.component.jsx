@@ -29,14 +29,26 @@ const SortVisualizer = () => {
         resetArray()
     }
 
-    const mergeSort = () => {
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const mergeSort = async () => {
         const log = mergeSortHelper(array)
         for (let i = 0; i < log.comparingLogArray.length; i++) {
-            setTimeout(() => {
-                const bars = document.getElementsByClassName('bar')
-                bars[log.comparingLogArray[i][0]].style.backgroundColor = 'red'
-                bars[log.comparingLogArray[i][1]].style.backgroundColor = 'red'
-            }, (i + 1) * 10)
+            const bars = document.getElementsByClassName('bar')
+            for (let j = 0; j < 2; j++) {
+                await timeout(20);
+                const color = j === 0 ? 'red' : 'aqua'
+                bars[log.comparingLogArray[i][0]].style.backgroundColor = color
+                bars[log.comparingLogArray[i][1]].style.backgroundColor = color
+
+                if (j === 1) {
+                    bars[log.changeLogArray[i][1]].style.height = 6 * log.changeLogArray[i][0] + 'px';
+                }
+            }
+
+
         }
     }
 

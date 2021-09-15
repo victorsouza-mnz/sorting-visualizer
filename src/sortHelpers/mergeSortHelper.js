@@ -26,6 +26,7 @@ export default function mergeSortInterface(array) {
         }
 
         for (let j = 0; j < left.length - leftIdx; j++) {
+            comparing.push(comparing[comparing.length - 1])
             change.push([left[leftIdx + j].value, min])
             min++
         }
