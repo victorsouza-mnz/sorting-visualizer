@@ -6,11 +6,17 @@ import mergeSortHelper from '../../sortHelpers/mergeSortHelper'
 const SortVisualizer = () => {
 
     const [array, setArray] = useState([{}])
+    const [invert, setInvert] = useState(false)
 
     useEffect(() => {
         resetArray()
     }, [])
 
+
+
+    const onToggleCheckBox = (event) => {
+        setInvert(!invert)
+    }
 
     const resetArray = () => {
         const array = []
@@ -54,8 +60,9 @@ const SortVisualizer = () => {
 
     return (
         <div>
-            <Header mergeSort={mergeSort} onClick={onClick} />
-            <div className="array">
+            <Header onToggleCheckBox={onToggleCheckBox} mergeSort={mergeSort} onClick={onClick} />
+            <div className="array" style={{ alignItems: `${invert ? 'flex-start' : 'flex-end'}` }}>
+
                 {
                     array.map((item, idx) => {
                         return (
@@ -64,6 +71,7 @@ const SortVisualizer = () => {
                         )
                     })
                 }
+
             </div>
         </div>
     )

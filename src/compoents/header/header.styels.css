@@ -1,3 +1,47 @@
 .header {
-    height: 15vh;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkslateblue;
+}
+
+.nav-item {
+    color: honeydew;
+    font-size: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid whitesmoke;
+    padding: 0 20px;
+    width: 100%;
+}
+
+
+.nav-item:hover {
+    color: lightblue;
+    font-size: 20px;
+    background-color: rgb(56, 46, 119) ;
+    cursor: pointer;
+}
+
+.info {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info-item {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.dot {
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    background-color: brown;
 }

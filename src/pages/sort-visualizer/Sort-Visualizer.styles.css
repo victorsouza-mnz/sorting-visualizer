@@ -6,9 +6,16 @@
     flex-wrap: nowrap;
     align-items: flex-end;
     overflow: hidden;
-    padding: 5px 100px;
+    padding: 5px 20px;
     box-sizing: border-box;
+    border: 1px solid black;
+    margin: 0 10px;
+
+    
 }
+
+
+
 
 .bar {
     width: 10px;
