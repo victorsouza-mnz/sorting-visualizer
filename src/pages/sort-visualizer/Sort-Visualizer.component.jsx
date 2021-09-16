@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../../compoents/header/header.component";
 import './Sort-Visualizer.styles.css'
 import mergeSortHelper from '../../sortHelpers/mergeSortHelper'
+import bubleSortHelper from '../../sortHelpers/bubbleSortHelper'
 
 const SortVisualizer = () => {
 
@@ -57,11 +58,36 @@ const SortVisualizer = () => {
 
         }
     }
+    const bubbleSort = async () => {
+        const animationLog = bubleSortHelper(array)
+        let red = true
+        for (let i = 0; i < animationLog.length; i++) {
+            const bars = document.getElementsByClassName('bar')
+            await timeout(0.5);
+            if (animationLog[i][2] === 0) {
+                if (red) {
+                    bars[animationLog[i][0]].style.backgroundColor = 'red'
+                    bars[animationLog[i][1]].style.backgroundColor = 'red'
+                    red = false
+                } else {
+                    bars[animationLog[i][0]].style.backgroundColor = 'aqua'
+                    bars[animationLog[i][1]].style.backgroundColor = 'aqua'
+                    red = true
+                }
+            } else if (animationLog[i][2] === 1) {
+
+                let temp = bars[animationLog[i][0]].style.height
+                bars[animationLog[i][0]].style.height = bars[animationLog[i][1]].style.height
+                bars[animationLog[i][1]].style.height = temp
+            }
+
+        }
+    }
 
     return (
         <div>
-            <Header onToggleCheckBox={onToggleCheckBox} mergeSort={mergeSort} onClick={onClick} />
-            <div className="array" style={{ alignItems: `${invert ? 'flex-start' : 'flex-end'}` }}>
+            <Header bubbleSort={bubbleSort} onToggleCheckBox={onToggleCheckBox} mergeSort={mergeSort} onClick={onClick} />
+            <div array={array} className="array" style={{ alignItems: `${invert ? 'flex-start' : 'flex-end'}` }}>
 
                 {
                     array.map((item, idx) => {
