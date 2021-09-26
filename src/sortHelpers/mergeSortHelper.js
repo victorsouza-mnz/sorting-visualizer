@@ -50,8 +50,8 @@ export default function mergeSortInterface(array) {
 
 
 
-    mergeSort(array)
-    return ({ changeLogArray: change, comparingLogArray: comparing })
+    const sortedArray = mergeSort(array)
+    return ({ changeLogArray: change, comparingLogArray: comparing, sortedArray })
 }
 
 

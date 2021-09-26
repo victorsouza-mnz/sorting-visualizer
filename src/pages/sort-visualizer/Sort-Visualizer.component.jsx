@@ -54,16 +54,15 @@ const SortVisualizer = () => {
                     bars[log.changeLogArray[i][1]].style.height = 6 * log.changeLogArray[i][0] + 'px';
                 }
             }
-
-
         }
+        setArray(log.sortedArray)
     }
     const bubbleSort = async () => {
         const animationLog = bubleSortHelper(array)
         let red = true
         for (let i = 0; i < animationLog.length; i++) {
             const bars = document.getElementsByClassName('bar')
-            await timeout(0.5);
+            await timeout(1);
             if (animationLog[i][2] === 0) {
                 if (red) {
                     bars[animationLog[i][0]].style.backgroundColor = 'red'
@@ -82,6 +81,12 @@ const SortVisualizer = () => {
             }
 
         }
+        const sortedArray = array.sort(function (a, b) {
+            var x = a['value']; var y = b['value'];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+
+        setArray(sortedArray)
     }
 
     return (

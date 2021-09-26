@@ -8,7 +8,7 @@ const Header = ({ onClick, mergeSort, onToggleCheckBox, bubbleSort }) => {
             <div className='header'>
                 <div className='nav-item' onClick={onClick}>Generate new array</div>
                 <div className='nav-item' onClick={mergeSort}>Merge sort</div>
-                <div className='nav-item' onClick={bubbleSort}>Buble sort (speedUp 20x)</div>
+                <div className='nav-item beta' onClick={bubbleSort}>Buble sort (speedUp 20x) <span className='betainfo'>Beta*</span></div>
                 <div className='nav-item' onClick={() => alert('Not implemented yet')}>Insertion Sort</div>
                 <div className='nav-item' onClick={() => alert('Not implemented yet')}>Quick sort</div>
             </div>
